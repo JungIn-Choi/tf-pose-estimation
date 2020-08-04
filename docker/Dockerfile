@@ -6,6 +6,7 @@ apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev && \
 apt-get install -y libgtk2.0-dev && \
 apt-get install -y libatlas-base-dev gfortran && \
 apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-tk git && \
+apt-get install -y libllvm-7-ocaml-dev libllvm7 llvm-7 llvm-7-dev llvm-7-doc llvm-7-examples llvm-7-runtime && \
 apt-get remove -y python-pip python3-pip && wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
 pip3 install numpy && \
 cd root/ && \
