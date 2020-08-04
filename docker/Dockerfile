@@ -2,7 +2,7 @@ FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y git && apt-get install -y wget && \
 apt-get install -y python3.6 python3-dev python3-pip python3-setuptools python3-tk git && \
-apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev && \
+apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng-dev && \
 apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev && \
 apt-get install -y libgtk2.0-dev && \
 apt-get install -y libatlas-base-dev gfortran && \
