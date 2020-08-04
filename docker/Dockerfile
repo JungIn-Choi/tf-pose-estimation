@@ -1,16 +1,15 @@
-FROM ubuntu:16.04
+FROM ubuntu:18.04
 
-#ENV http_proxy=http://10.41.249.28:8080 https_proxy=http://10.41.249.28:8080
-
-RUN apt-get update -yq && apt-get install -yq build-essential cmake git pkg-config wget zip && \
-apt-get install -yq libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev && \
-apt-get install -yq libavcodec-dev libavformat-dev libswscale-dev libv4l-dev && \
-apt-get install -yq libgtk2.0-dev && \
-apt-get install -yq libatlas-base-dev gfortran && \
-apt-get install -yq python3 python3-dev python3-pip python3-setuptools python3-tk git && \
-apt-get remove -yq python-pip python3-pip && wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
+RUN apt-get update && apt-get install -y git && apt-get install -y wget && \
+apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev && \
+apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev && \
+apt-get install -y libgtk2.0-dev && \
+apt-get install -y libatlas-base-dev gfortran && \
+apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-tk git && \
+apt-get remove -y python-pip python3-pip && wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
 pip3 install numpy && \
-cd ~ && git clone https://github.com/Itseez/opencv.git && \
+cd root/ && \
+git clone https://github.com/Itseez/opencv.git && \
 cd opencv && mkdir build && cd build && \
 cmake -D CMAKE_BUILD_TYPE=RELEASE \
 	-D CMAKE_INSTALL_PREFIX=/usr/local \
