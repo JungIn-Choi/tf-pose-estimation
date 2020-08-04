@@ -1,11 +1,11 @@
 FROM ubuntu:18.04
 
 RUN apt-get update && apt-get install -y git && apt-get install -y wget && \
+apt-get install -y python3.6 python3-dev python3-pip python3-setuptools python3-tk git && \
 apt-get install -y libjpeg8-dev libtiff5-dev libjasper-dev libpng12-dev && \
 apt-get install -y libavcodec-dev libavformat-dev libswscale-dev libv4l-dev && \
 apt-get install -y libgtk2.0-dev && \
 apt-get install -y libatlas-base-dev gfortran && \
-apt-get install -y python3 python3-dev python3-pip python3-setuptools python3-tk git && \
 apt-get install -y libllvm-7-ocaml-dev libllvm7 llvm-7 llvm-7-dev llvm-7-doc llvm-7-examples llvm-7-runtime && \
 apt-get remove -y python-pip python3-pip && wget https://bootstrap.pypa.io/get-pip.py && python3 get-pip.py && \
 pip3 install numpy && \
@@ -34,6 +34,6 @@ cd cocoapi/PythonAPI && python3 setup.py build_ext --inplace && python3 setup.py
 mkdir /coco && cd /coco && wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip && \
 unzip annotations_trainval2017.zip && rm -rf annotations_trainval2017.zip
 
-ENTRYPOINT ["python3", "pose_dataworker.py"]
+ENTRYPOINT ["python3", "run.py"]
 
 #ENV http_proxy= https_proxy=
