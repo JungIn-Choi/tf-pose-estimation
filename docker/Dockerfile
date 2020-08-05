@@ -11,8 +11,7 @@ git clone https://github.com/JungIn-Choi/tf-pose-estimation.git && \
 cd tf-pose-estimation && \
 python3 setup.py install && \
 pip3 install numpy && \
-cd models/graph/cmu && bash download.sh && 
-
+cd models/graph/cmu && bash download.sh
 
 COPY . /root/tf-openpose/
 WORKDIR /root/tf-openpose/
