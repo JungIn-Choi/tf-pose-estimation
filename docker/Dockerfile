@@ -1,4 +1,7 @@
 FROM ubuntu:18.04
+
+ENV TZ=Asia/Seoul
+RUN ln -snf /usr/share/zoneinfo/$TZ /etc/localtime && echo $TZ > /etc/timezone
 RUN apt-get update && apt-get install -y git && apt-get install -y wget  && \
 apt-get install -y python3.6  && apt-get -y install python3-pip  && apt-get install -y python3-tk && \
 pip3 install tensorflow && pip3 install protobuf && pip3 install slidingwindow && \
@@ -13,10 +16,10 @@ python3 setup.py install && \
 pip3 install numpy && \
 cd models/graph/cmu && bash download.sh
 
-COPY . /root/tf-openpose/
-WORKDIR /root/tf-openpose/
+COPY . /root/tf-pose-estimation/
+WORKDIR /root/tf-pose-estimation/
 
-RUN cd /root/tf-openpose/ && pip3 install -U setuptools && \
+RUN cd /root/tf-pose-estimation/ && pip3 install -U setuptools && \
 pip3 install tensorflow && pip3 install -r requirements.txt
 
 RUN cd /root && git clone https://github.com/cocodataset/cocoapi && \
