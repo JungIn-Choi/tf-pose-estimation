@@ -25,7 +25,4 @@ pip3 install tensorflow && pip3 install -r requirements.txt
 RUN cd /root && git clone https://github.com/cocodataset/cocoapi && \
 pip3 install cython && \
 cd cocoapi/PythonAPI && python3 setup.py build_ext --inplace && python3 setup.py build_ext install && \
-mkdir /coco && cd /coco && wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip && \
-unzip annotations_trainval2017.zip && rm -rf annotations_trainval2017.zip
-
-ENTRYPOINT ["python3", "run.py"]
+mkdir /coco && cd /coco && wget http://images.cocodataset.org/annotations/annotations_trainval2017.zip
